@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CleanArchitecture</string>
+    <string name="empty" />
+    <string name="cancel_btn">Cancel</string>
+    <string name="okay">Okay</string>
+    <string name="loading">Loading in progress....</string>
+</resources>
