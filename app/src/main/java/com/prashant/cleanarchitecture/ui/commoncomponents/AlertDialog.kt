@@ -78,7 +78,7 @@ class AlertDialogPreviewParameterProvider : PreviewParameterProvider<AlertType.A
             title = "AlertDialog Title",
             description = "AlertDialog Description",
             confirmButtonTextResource = R.string.okay,
-            dismissButtonTextResource =R.string.cancel_btn,
+            dismissButtonTextResource = R.string.cancel_btn,
             confirmButton = { },
             dismissButton = {}
         ),
@@ -86,7 +86,7 @@ class AlertDialogPreviewParameterProvider : PreviewParameterProvider<AlertType.A
             title = "AlertDialog Title 2",
             description = "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             confirmButtonTextResource = R.string.okay,
-            dismissButtonTextResource =R.string.cancel_btn,
+            dismissButtonTextResource = R.string.cancel_btn,
             confirmButton = { },
             dismissButton = {}
         )

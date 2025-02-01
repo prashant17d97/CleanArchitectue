@@ -7,6 +7,6 @@ import com.prashant.cleanarchitecture.utils.NetworkResponse
 
 class GetHeroesByIdUseCaseImpl(private val repository: Repository) : GetHeroesByIdUseCase {
     override suspend fun invoke(param: String): NetworkResponse<Product> {
-        return repository.getSuperHeroById(id =param)
+        return repository.getSuperHeroById(id = param)
     }
 }

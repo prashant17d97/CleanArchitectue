@@ -27,7 +27,7 @@ fun NavigationGraph(
     ) {
         composable<NavigationRoute.Home> {
             Home(
-                homeViewModel=homeViewModel
+                homeViewModel = homeViewModel
             ) {
                 navController.navigate(NavigationRoute.Detail(it))
             }

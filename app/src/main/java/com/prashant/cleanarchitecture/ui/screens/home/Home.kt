@@ -92,7 +92,7 @@ fun HerCard(
     modifier: Modifier = Modifier,
     product: Product,
 ) {
-    Card(modifier=modifier) {
+    Card(modifier = modifier) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(
@@ -123,8 +123,15 @@ fun HerCard(
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
-                Text(product.description.split(" ").take(10).joinToString(" "), style = MaterialTheme.typography.bodyMedium)
-                Text("$${product.price}", style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
+                Text(
+                    product.description.split(" ").take(10).joinToString(" "),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Text(
+                    "$${product.price}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.Bold
+                )
             }
         }
 

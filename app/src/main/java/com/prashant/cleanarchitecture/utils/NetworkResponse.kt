@@ -74,8 +74,7 @@ sealed class NetworkResponse<out Generic> {
     ) {
         // Show loading indicator only if the response is Idle (request in progress)
 
-
-        val loadingResponse=when (this) {
+        val loadingResponse = when (this) {
             is EmptyBodySuccess -> {
                 error(responseMessage, statusCode)
                 false

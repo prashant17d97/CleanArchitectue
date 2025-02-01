@@ -13,8 +13,8 @@ object UICommnetUtils {
     fun SnackBarColor.color(): Color {
         val colorScheme = MaterialTheme.colorScheme
         return when (this) {
-            SnackBarColor.Info ->colorScheme.primary
-            SnackBarColor.Success ->colorScheme.secondary
+            SnackBarColor.Info -> colorScheme.primary
+            SnackBarColor.Success -> colorScheme.secondary
             SnackBarColor.Warning -> colorScheme.tertiary
             SnackBarColor.Error -> colorScheme.onError
         }
