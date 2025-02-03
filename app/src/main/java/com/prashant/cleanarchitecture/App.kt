@@ -145,12 +145,12 @@ private fun ShowSnackBar(
 
         when (snackbarResult) {
             SnackbarResult.ActionPerformed -> {
-                dismissAlert
+                dismissAlert()
                 alertType.action?.invoke()
             }
 
             SnackbarResult.Dismissed -> {
-                dismissAlert
+                dismissAlert()
                 alertType.onDismiss?.invoke()
             }
         }
