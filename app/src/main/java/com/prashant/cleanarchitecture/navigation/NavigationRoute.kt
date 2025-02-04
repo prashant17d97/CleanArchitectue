@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 sealed class NavigationRoute {
 
     @Serializable
-    object Home : NavigationRoute()
+    data object Home : NavigationRoute()
 
     @Serializable
     data class Detail(val id: String) : NavigationRoute()
