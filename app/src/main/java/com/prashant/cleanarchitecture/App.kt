@@ -1,6 +1,7 @@
 package com.prashant.cleanarchitecture
 
 import android.widget.Toast
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -44,6 +45,7 @@ import com.prashant.cleanarchitecture.ui.commoncomponents.AlertDialog
 import com.prashant.cleanarchitecture.ui.commoncomponents.ProgressLoader
 import com.prashant.cleanarchitecture.ui.theme.CleanArchitectureTheme
 import com.prashant.cleanarchitecture.utils.UICommnetUtils.color
+import com.prashant.cleanarchitecture.utils.UICommnetUtils.shouldShowBottomBar
 import com.prashant.cleanarchitecture.utils.appstate.AlertType
 import com.prashant.cleanarchitecture.utils.appstate.AlertType.SnackBar
 import com.prashant.cleanarchitecture.utils.appstate.UIAlertModel
@@ -57,7 +59,13 @@ fun App(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val alerts by mainViewModel.alertEvent.collectAsState(initial = UIAlertModel())
+
+    // Approach 1
+    val bottomBarVisibility by mainViewModel.bottomBarVisibility.collectAsState()
+
+    // Approach 2
     val currentDestination by navController.currentBackStackEntryFlow.collectAsState(null)
+
     var bottomBarItems by remember {
         mutableStateOf(
             listOf(
@@ -115,11 +123,20 @@ fun App(
             }
         },
         bottomBar = {
-            BottomBarContainer(bottomBarItems = bottomBarItems) {
-                bottomBarItems= bottomBarItems.map { item ->
-                    item.copy(selected = it.route == item.route)
+             /**
+              * Approach 1:  we can use this approach if we don't want to show bottom bar on some
+              *              screen; It will be controlled by the app Navigation backstack entry
+              *
+              * Approach 2:  we can use this approach if we want to show bottom bar but the control
+              *             will be based on Screen composition and need make robust handling.
+              *
+              * Suggestion: Approach 1 is more robust and easy to handle
+              *
+              * */
+            AnimatedVisibility(visible = currentDestination.shouldShowBottomBar()) {
+                BottomBarContainer(bottomBarItems = bottomBarItems) {
+                    navController.navigate(it.route)
                 }
-                navController.navigate(it.route)
             }
         }
     ) {

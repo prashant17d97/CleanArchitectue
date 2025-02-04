@@ -8,6 +8,7 @@ class MainViewModel(
     private val appStatesOwner: AppStatesOwner
 ) : ViewModel(), KoinComponent {
     val alertEvent = appStatesOwner.alertEvent
+    val bottomBarVisibility = appStatesOwner.bottomBarVisibility
     fun dismissAlert() {
         appStatesOwner.dismissAlert()
     }

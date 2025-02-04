@@ -5,6 +5,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavBackStackEntry
+import com.prashant.cleanarchitecture.navigation.NavigationRoute
 import com.prashant.cleanarchitecture.utils.appstate.SnackBarColor
 
 object UICommnetUtils {
@@ -27,5 +29,13 @@ object UICommnetUtils {
     @Composable
     fun Int.string(): String {
         return stringResource(this)
+    }
+
+    fun NavBackStackEntry?.shouldShowBottomBar(): Boolean {
+        return when(this?.destination?.route){
+            NavigationRoute.Home::class.java.canonicalName ->  true
+            NavigationRoute.Detail::class.java.canonicalName ->  true
+            else -> return false
+        }
     }
 }

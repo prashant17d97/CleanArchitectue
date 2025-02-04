@@ -20,6 +20,7 @@ class DetailViewModel(
     val product: StateFlow<Product?> = _product
 
     fun retrieve(id: String) {
+        appStatesOwner.hideBottomBar()
         if (id == product.value?.id.toString()) return
         viewModelScope.launch {
             getHeroesByIdUseCase(id).parseResponse(
